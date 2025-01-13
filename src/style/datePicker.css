@@ -1,0 +1,7 @@
+.rdp-selected{
+    color: var(--rojoSatori);
+}
+
+.rdp-chevron {
+    fill: var(--rojoSatori);
+}

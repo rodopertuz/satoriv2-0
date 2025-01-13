@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'sukhumvit_setbold';
+    src: url('../style/fonts/sukhumvitset-bold-webfont.eot');
+    src: url('../style/fonts/sukhumvitset-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../style/fonts/sukhumvitset-bold-webfont.woff2') format('woff2'),
+         url('../style/fonts/sukhumvitset-bold-webfont.woff') format('woff'),
+         url('../style/fonts/sukhumvitset-bold-webfont.ttf') format('truetype'),
+         url('../style/fonts/sukhumvitset-bold-webfont.svg#sukhumvit_setbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  :root {
+    --grisClaroSatori: #cccccc;
+    --grisOscuroSatori: #666666;
+    --rojoSatori: #ff402c;
+  }

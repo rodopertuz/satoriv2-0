@@ -1,6 +1,6 @@
-import { HashLink } from 'react-router-hash-link';
 
 import '../style/menu.css';
+import Topmenuitemsitem from './topMenuItemsItem';
 
 function TopMenuItems() {
     const menuItems = ["Home", "Nosotros", "Programas", "Horarios", "Staff", "Contacto", "FAQ"]
@@ -30,7 +30,7 @@ function TopMenuItems() {
 
                 var linkTo
                 if((texto.toLowerCase() === "nosotros") || (texto.toLowerCase() === "staff")){
-                    linkTo = "/home#" + texto.toLowerCase()
+                    linkTo = "/#" + texto.toLowerCase()
                 } else {
                     linkTo = "/" + texto.toLowerCase() + "#" + texto.toLowerCase()
                 }
@@ -48,9 +48,7 @@ function TopMenuItems() {
 
                 return (
                     <>
-                        <HashLink smooth to={linkTo} onClick={(e) => activar(e)} key={index}>
-                            <div className='menu-items-item' title={texto} style={divStyle}><p title={texto}>{texto}</p></div>
-                        </HashLink>
+                        <Topmenuitemsitem linkTo={linkTo} texto={texto} divStyle={divStyle} func={activar} key={index}/>
                     </>
                 )
             })
