@@ -1,0 +1,36 @@
+.divStyle {
+    margin: 0;
+    padding: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 995;
+    width: 100%;
+}
+  
+.loadingLogo {
+    height: 80%;
+    animation: transition1 2s linear 0s alternate infinite;
+    opacity: 0;
+}
+
+@media (max-width:450px) {
+    .divStyle {
+      height: 100%;
+    }
+
+    .loadingLogo {
+      width: 90%;
+      height: auto;
+      vertical-align: middle;
+    } 
+}
+
+@keyframes transition1 {
+    100% {opacity: 0.5;}
+}

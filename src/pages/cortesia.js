@@ -3,9 +3,13 @@ import { useState,useRef } from 'react'
 import { format } from 'date-fns'
 
 import '../style/cortesia.css'
-import Botonfechacortesia from '../components/botonFechaCortesia.jsx'
+
 import { validarEmail, tipoTitulo, separadorCelular} from '../functions/commonFunctions.jsx'
+
+import Botonfechacortesia from '../components/botonFechaCortesia.jsx'
 import ConutryDataSelect from '../components/conutryDataSelect.jsx'
+import LoadingAnimation from '../components/loadingAnimation.jsx'
+import Confirmacion from './confirmacion.jsx'
 
 function Cortesia() {
     const [selected, setSelected] = useState(new Date());
@@ -83,7 +87,7 @@ function Cortesia() {
         var tycCortesia = tycRef.current.checked
         var fechaCortesia = fechaCortesiaRef.current.innerText
         
-        var celularCortesia = document.getElementById("celular")
+        var celularCortesiaInput = document.getElementById("celular")
         var horaCortesia = document.getElementsByClassName("fecha-cortesia-btn-selected")
 
         const formulario = document.getElementById("container-element-form")
@@ -109,9 +113,9 @@ function Cortesia() {
             document.getElementById("email").style.border = borderMissingInput
             emailRef.current.focus()
             alert("Escriba una dirección de E-Mail válida")
-        } else if ((celularCortesia.value === '') || (celularCortesia.value.length <13)) {
+        } else if ((celularCortesiaInput.value === '') || (celularCortesiaInput.value.length <13)) {
             document.getElementById("celular").style.border = borderMissingInput
-            celularCortesia.focus()
+            celularCortesiaInput.focus()
             alert("Escriba un número de celular válido")
         } else if (!tycCortesia) {
             document.getElementById("tyc-container").style.border = borderMissingInput
@@ -123,19 +127,39 @@ function Cortesia() {
         } else {
             var str = tipoTitulo(nombreCortesia)
             nombreRef.current.value = str
-            console.log("nombre: " + str)
+            nombreCortesia = str
+            console.log("nombre: " + nombreCortesia)
             console.log(mayordeCortesia)
             str = tipoTitulo(acudienteCortesia)
             acudienteRef.current.value = str
-            console.log("acudiente: " + str)
+            acudienteCortesia = str
+            console.log("acudiente: " + acudienteCortesia)
             console.log("email: " + emailCortesia)
             const indicativo = document.getElementById("indicativo").innerText
-            console.log("Celular: " + indicativo + " " + celularCortesia.value)
+            var celularCortesia = indicativo + " " + celularCortesiaInput.value
+            celularCortesia = celularCortesia.replace("+","M");
+            console.log("Celular: " + celularCortesia)
             console.log(tycCortesia)
             document.getElementById("fechaCortesiaInput").value = fechaCortesia
             console.log(fechaCortesia)
             document.getElementById("horaCortesiaInput").value = horaCortesia[0].innerText
-            console.log(horaCortesia[0].innerText)
+            horaCortesia = horaCortesia[0].innerText
+            console.log(horaCortesia)
+            
+            document.getElementById("loading-animation-container").style.display = "flex"
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if (this.response === "OK") {
+                    alert(this.response)
+                } else {
+                    alert(this.response)
+                }
+            }
+            };
+            xhttp.open("GET", "../php/emailNuevaCortesia.php?email=" + emailCortesia + "&nombre=" + nombreCortesia + "&celular=" + celularCortesia + "&acudiente=" +  acudienteCortesia+ "&fecha=" + fechaCortesia + "&hora=" + horaCortesia, true);
+            xhttp.send();
         }
     }
 
@@ -163,8 +187,9 @@ function Cortesia() {
 
     return(
         <>
+        <LoadingAnimation />
         <h1 className='section-titulo'>Agendar Clase de Cortesía</h1>
-        <div className='section-container'>
+        <div className='section-container' id='section-container'>
             <div className='section-subcontainer'>
                 <div class="container-element">
                     <div className='container-element-titulo'>Seleccionar Fecha</div>
@@ -189,7 +214,7 @@ function Cortesia() {
                 <div  class="container-element">
                     <div className='container-element-titulo'>Diligenciar Sus Datos</div>
                     <div className='container-element-form' id="container-element-form">
-                        <form action="">
+                        <form action="" id="cortesia-form">
                             <input type="text" name='nombre' id='nombre' placeholder='Nombre Completo Del Alumno' autoComplete='off' ref={nombreRef} />
                             <label htmlFor="nombre"></label>
                             <input type="checkbox" name='mayorde' id='mayorde' onChange={(e) => mayorde18Func(e)} title="mayorde"ref={mayordeRef}/>
@@ -225,6 +250,7 @@ function Cortesia() {
                 </div>
             </div>
         </div>
+        <Confirmacion />
         </>
     )
 }
