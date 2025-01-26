@@ -4,17 +4,16 @@ import { useEffect, useRef } from 'react'
 import imagen1 from '../img/portada.png'
 import imagen2 from '../img/imagen2.png'
 import '../style/home.css'
+import Profesores from '../components/profesores'
 
 function Home() {
     const containerRef1 = useRef(null)
-    const containerRef2 = useRef(null)
 
-    
     const callbackFunction = (entries) => {
         // const [entry] = entries
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('imagenAnimada')
+                entry.target.classList.add('imagenAnimadaIzqDer')
                 observer.unobserve(entry.target)
             }
         });
@@ -28,12 +27,12 @@ function Home() {
     const observer = new IntersectionObserver(callbackFunction, options)
     useEffect(() =>{
         if (containerRef1.current) observer.observe(containerRef1.current)
-        if (containerRef2.current) observer.observe(containerRef2.current)
+        // if (containerRef2.current) observer.observe(containerRef2.current)
         return() => {
             // eslint-disable-next-line
             if (containerRef1.current) observer.observe(containerRef1.current)
             // eslint-disable-next-line
-            if (containerRef2.current) observer.observe(containerRef2.current)
+            // if (containerRef2.current) observer.observe(containerRef2.current)
         }
     // eslint-disable-next-line
     }, [options])
@@ -68,24 +67,11 @@ function Home() {
                 <p>Las clases se desarrollan en un ambiente seguro, de apoyo, de acompañamiento y a la vez de entrenamiento exigente en tatami olímpico profesional. Todas las clases son dirigidas por el instructor principal, Cinta Negra 1er Grado - Rodolfo Pertuz o en su ausencia, un instructor cinta negra/marrón asignado.</p>
             </div>
         </div>
-
-        <h1 className='section-titulo' style={{visibility: "hidden"}}>Sin Titulo</h1>
-        <div className='section-container' id='programas'>
-            <div className='section-img'>
-                <img src={imagen2} alt="nosotros-img" ref={containerRef2} />
-            </div>
-            <div className='section-texto'>
-                <h2>Clases de Jiu Jitsu Brasilero.</h2>
-                <p>Cualquier persona puede aprender Jiu Jitsu Brasilero! Nuestros instructores ayudan tanto a los estudiantes nuevos como a los experimentados a dominar los fundamentos de las artes marciales y a alcanzar sus objetivos personales.</p>
-
-                <p>La estructura de nuestras clases y nuestra metodología están diseñadas para atender las necesidades de todos los practicantes.</p>
-
-                <h2>Clases de boxeo.</h2>
-                <p>Entrena boxeo desde nivel principiante hasta profesional ! Aprende los fundamentos del boxeo, mejora tu condición física y aprende a defenderte con técnicas apropiadas de boxeo.</p>
-                <p>Las clases son dirigídas por un profesor profesional en la disciplina del boxeo, quien guía a los alumnos a través de ejercicios de movilidad, calistenia simple y boxeo de sombra.</p>
-
-                <h2>Clases de MMA.</h2>
-                <p>Quienes se vinculan a este grupo aprenden a pelear de manera integral, desarrollando las habilidades necesarias para enetenerder las dinámicas de las Artes Marciales Mixtas (MMA por sus siglas en inglés Mixed Martial Arts) de una manera segura y divertída que les va permitir empoderarse dentro de su camino marcial y conocer todos los componentes realesde un combate.</p>
+        <div id='staff' style={{position: "relative", top: -50+"px"}}></div>
+        <div className='section-staff'>
+            <h1>CONOCE NUESTROS PROFESORES</h1>
+            <div className='staff-items-container'>
+                <Profesores />
             </div>
         </div>
         </>

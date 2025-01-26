@@ -7,6 +7,7 @@ import Horarios from './pages/horarios.js'
 import Contacto from './pages/contacto.js'
 import Faq from './pages/faq.js'
 import Cortesia from './pages/cortesia.js'
+import Planes from './pages/planes.jsx'
 
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/programas" element={<Programas />} />
             <Route path="/horarios" element={<Horarios />} />
+            <Route path="/planes" element={<Planes />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/faq" element={<Faq />} />
             <Route path='/calendario-reservas/cortesia' element={<Cortesia />} />

@@ -1,0 +1,60 @@
+.planes-items-global-container{
+    position: relative;
+    padding: 10px;
+}
+
+.botones-planes-disciplinas, .botones-planes-combos{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.boton-planes-disciplina {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    color: var(--grisOscuroSatori);
+    cursor: pointer;
+    font-size: large;
+}
+
+.boton-planes-activo {
+    border: 1px solid var(--azulSatori);
+    color: black;
+    background-color: white;
+}
+
+.sub-boton {
+    font-size: small;
+}
+
+.sub-boton-activo {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    font-size: small;
+}
+
+.planes-items-container {
+    display: none;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+  
+  @keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
+  }

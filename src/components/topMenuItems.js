@@ -3,7 +3,7 @@ import '../style/menu.css';
 import Topmenuitemsitem from './topMenuItemsItem';
 
 function TopMenuItems() {
-    const menuItems = ["Home", "Nosotros", "Programas", "Horarios", "Staff", "Contacto", "FAQ"]
+    const menuItems = ["Home", "Nosotros",  "Staff", "Programas", "Horarios", "Planes", "Contacto", "FAQ"]
 
     function activar(e) {
         var elemento = e.target

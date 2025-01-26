@@ -13,6 +13,8 @@
 :root {
   --grisClaroSatori: #cccccc;
   --rojoSatori: #ff402c;
+  --azulSatori: #3f63ff;
+  --colorDobleA: #e50069;
 }
 
 body {
@@ -27,8 +29,37 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .imagenAnimada {
+  .imagenAnimadaIzqDer {
     animation: imagenIzqDer 2s ease 1;
+    animation-fill-mode: forwards;
+  }
+  
+  .divAnimadaAbajoArriba0 {
+    animation: divAbajoArriba 2s ease 1;
+    animation-fill-mode: forwards;
+  }
+
+  .divAnimadaAbajoArriba1 {
+    animation: divAbajoArriba 2s ease 1;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  .divAnimadaAbajoArriba2 {
+    animation: divAbajoArriba 2s ease 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .divAnimadaAbajoArriba3 {
+    animation: divAbajoArriba 2s ease 1;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+  }
+
+  .divAnimadaAbajoArriba4 {
+    animation: divAbajoArriba 2s ease 1;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
   }
 }
@@ -36,4 +67,9 @@ body {
 @keyframes imagenIzqDer {
   0%   {opacity:0; left:0px;}
   100% {opacity:1; left:50%;}
+}
+
+@keyframes divAbajoArriba {
+  0%   {opacity:0; top:0px;}
+  100% {opacity:1; top:-150px;}
 }

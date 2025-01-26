@@ -1,3 +1,5 @@
+import { HashLink } from 'react-router-hash-link';
+
 import facebookIcon from '../img/facebookIconP.png';
 import instagramIcon from '../img/instagramIconP.png';
 import whatsappIcon from '../img/whatsappIconRedondoP.png';
@@ -5,16 +7,41 @@ import locationPin from '../img/locationPinP.png';
 import '../style/footer.css';
 
 function Footer () {
+
+    function activarDesdeFooter(x){
+        const menuItems = document.getElementById("menu-items-container")
+        const items = menuItems.getElementsByTagName("div")
+        for (let i=0; i<items.length; i++){
+            items[i].style.color = "black"
+            if (i === x) items[i].style.color = "#ff402c"
+        }
+    }
     return(
         <div className='footer-container'>
             <div className='footer-section'>
                 <div className='footer-items-container'>
                     <h2>Acceso Rápido</h2>
-                    <a href='#menu'><p>Home</p></a>
-                    <a href='#menu'><p>Nosotros</p></a>
-                    <a href='#menu'><p>Programas</p></a>
-                    <a href='#menu'><p>Staff</p></a>
-                    <a href='#menu'><p>Contacto</p></a>
+                    <HashLink smooth to="/#home" onClick={() => activarDesdeFooter(0)}>
+                        <p>Home</p>
+                    </HashLink>
+                    <HashLink smooth to="/#nosotros" onClick={() => activarDesdeFooter(1)}>
+                        <p>Nosotros</p>
+                    </HashLink>
+                    <HashLink smooth to="/#staff" onClick={() => activarDesdeFooter(2)}>
+                        <p>Staff</p>
+                    </HashLink>
+                    <HashLink smooth to="/programas#programas" onClick={() => activarDesdeFooter(3)}>
+                        <p>Programas</p>
+                    </HashLink>
+                    <HashLink smooth to="/horarios#horarios" onClick={() => activarDesdeFooter(4)}>
+                        <p>Horarios</p>
+                    </HashLink>
+                    <HashLink smooth to="/planes#planes" onClick={() => activarDesdeFooter(5)}>
+                        <p>Planes</p>
+                    </HashLink>
+                    <HashLink smooth to="/contacto#contaccto" onClick={() => activarDesdeFooter(6)}>
+                        <p>Contacto</p>
+                    </HashLink>
                 </div>
                 <div className='footer-items-container'>
                     <h2>Información de Contacto</h2>
@@ -55,7 +82,7 @@ function Footer () {
                 <div className='footer-menu-container'>
                     <a href='./docs/terminosycondiciones.html'><div className='footer-menu-item'><p>Términos y Condiciones</p></div></a>
                     <a href='./docs/politica-de-privacidad.html'><div className='footer-menu-item'><p>Política de Privacidad</p></div></a>
-                    <div className='footer-menu-item'><p>&copy; 2025 Satori Jiu Jitsu. Powered by Agedial </p></div>
+                    <div className='footer-menu-item'><p>&copy; 2025 Satori Jiu Jitsu. Powered by Ageidal </p></div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,39 @@
+.staff-items-container {
+    background-color: var(--fondoBody);
+    color: black;
+    display: flex;
+    gap: 50px;
+    padding: 0px 50px;
+}
+
+.profesor-container {
+    position: relative;
+    opacity: 0;
+    flex-grow: 1;
+    flex-basis: 5%;
+    border: 1px solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0px 10px 10px var(--grisClaroSatori);
+}
+
+.profesor-container img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    /* border: 2px solid black; */
+}
+
+.profesor-info {
+    background-color: var(--rojoSatori);
+    color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.profesor-descripcion{
+    text-align: justify;
+    padding: 0px 20px;
+}

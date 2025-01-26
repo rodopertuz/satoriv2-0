@@ -152,9 +152,11 @@ function Cortesia() {
             xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 if (this.response === "OK") {
-                    alert(this.response)
+                    document.getElementById("loading-animation-container").style.display = "none"
+                    document.getElementById("confirmacion-container").style.display = "flex"
                 } else {
                     alert(this.response)
+                    document.getElementById("loading-animation-container").style.display = "none"
                 }
             }
             };
