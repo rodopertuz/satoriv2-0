@@ -5,42 +5,8 @@ import '../style/planes.css'
 import {Datas} from '../data/dataJson.js' 
 
 export default function Planes(){
-    const titulosBJJ = Datas.BJJ.titulosBJJ
-    const subtitulosBJJ = Datas.BJJ.subtitulosBJJ
-    const vrMensualesBJJ = Datas.BJJ.vrMensualesBJJ
-    const vrTotalesBJJ = Datas.BJJ.vrTotalesBJJ
-    const botonesBJJ = Datas.BJJ.botonesBJJ
-    const descripcionesBJJ = Datas.BJJ.descripcionesBJJ
 
-    const titulosBoxeo = Datas.BOXEO.titulosBoxeo
-    const subtitulosBoxeo = Datas.BOXEO.subtitulosBoxeo
-    const vrMensualesBoxeo = Datas.BOXEO.vrMensualesBoxeo
-    const vrTotalesBoxeo = Datas.BOXEO.vrTotalesBoxeo
-    const botonesBoxeo = Datas.BOXEO.botonesBoxeo
-    const descripcionesBoxeo = Datas.BOXEO.descripcionesBoxeo
-
-    const titulosMMA = Datas.MMA.titulosMMA
-    const subtitulosMMA = Datas.MMA.subtitulosMMA
-    const vrMensualesMMA = Datas.MMA.vrMensualesMMA
-    const vrTotalesMMA = Datas.MMA.vrTotalesMMA
-    const botonesMMA = Datas.MMA.botonesMMA
-    const descripcionesMMA = Datas.MMA.descripcionesMMA
-
-    const titulosCombos = Datas.COMBOS.titulosCombos
-    const subtitulosCombos = Datas.COMBOS.subtitulosCombos
-    const vrMensualesCombos = Datas.COMBOS.vrMensualesCombos
-    const vrTotalesCombos = Datas.COMBOS.vrTotalesCombos
-    const botonesCombos = Datas.COMBOS.botonesCombos
-    const descripcionesCombos = Datas.COMBOS.descripcionesCombos
-
-    const titulosOtros = Datas.OTROS.titulosOtros
-    const subtitulosOtros = Datas.OTROS.subtitulosOtros
-    const vrMensualesOtros = Datas.OTROS.vrMensualesOtros
-    const vrTotalesOtros = Datas.OTROS.vrTotalesOtros
-    const botonesOtros = Datas.OTROS.botonesOtros
-    const descripcionesOtros = Datas.OTROS.descripcionesOtros
-
-    function cambiarSlide(slideIndex){
+    function cambiarSlide(slideIndex, evento){
         const planesContainers = document.getElementsByClassName("planes-items-container")
         const botonesDiv = document.getElementById("planes-items-global-container")
         const botones = botonesDiv.getElementsByTagName("button")
@@ -59,121 +25,117 @@ export default function Planes(){
         if(slideIndex === 3){
             botones[5].className = "boton-planes-disciplina sub-boton-activo";
             document.getElementById("botones-planes-combos").style.visibility = 'visible'
+            document.getElementById("botones-planes-combos").style.marginBottom = '20px'
         } else {
             document.getElementById("botones-planes-combos").style.visibility = 'hidden'
+            document.getElementById("botones-planes-combos").style.marginBottom = '0px'
         }
         
         if (slideIndex > 4){
             botones[3].className = "boton-planes-disciplina boton-planes-activo";
             document.getElementById("botones-planes-combos").style.visibility = 'visible'
+            document.getElementById("botones-planes-combos").style.marginBottom = '20px'
             slideIndex++
             botones[slideIndex].className = "boton-planes-disciplina sub-boton-activo";
         } else {
             botones[slideIndex].className = "boton-planes-disciplina boton-planes-activo";
-            var color = ""
-            if(slideIndex === 1) color = "var(--colorDobleA)"
-            if(slideIndex === 2) color = "var(--rojoSatori)"
-            if(slideIndex === 3) color = "black"
-            console.log("index: " + slideIndex + ", Color: " + color)
+            const seccion = evento.target.title.toUpperCase()
+            var color = Datas[seccion].color
             botones[slideIndex].style.borderColor = color;
         }
     }
+
 
     return(
         <>
             <h1 className='section-titulo'>Planes y Promociones</h1>
             <div className='planes-items-global-container' id='planes-items-global-container'>
                 <div className='botones-planes-disciplinas' id='botones-planes-disciplinas'>
-                    <button className='boton-planes-disciplina boton-planes-activo' onClick={() => cambiarSlide(0)}>BJJ</button>
-                    <button className='boton-planes-disciplina' onClick={() => cambiarSlide(1)}>Boxeo</button>
-                    <button className='boton-planes-disciplina' onClick={() => cambiarSlide(2)}>MMA</button>
-                    <button className='boton-planes-disciplina' onClick={() => cambiarSlide(3)}>Combos!</button>
-                    <button className='boton-planes-disciplina' onClick={() => cambiarSlide(4)}>Otros</button>
+                    <button className='boton-planes-disciplina boton-planes-activo' onClick={(e) => cambiarSlide(0,e)} title='BJJ'>BJJ</button>
+                    <button className='boton-planes-disciplina' onClick={(e) => cambiarSlide(1,e)} title='Boxeo'>Boxeo</button>
+                    <button className='boton-planes-disciplina' onClick={(e) => cambiarSlide(2,e)} title='MMA'>MMA</button>
+                    <button className='boton-planes-disciplina' onClick={(e) => cambiarSlide(3,e)} title='Combos'>Combos</button>
+                    <button className='boton-planes-disciplina' onClick={(e) => cambiarSlide(4,e)} title='Otros'>Otros</button>
                 </div>
                 <div className='botones-planes-combos' id='botones-planes-combos' style={{visibility: "hidden"}}>
-                    <button className='boton-planes-disciplina sub-boton' onClick={() => cambiarSlide(3)}>Pago Recurrente</button>
-                    <button className='boton-planes-disciplina sub-boton' onClick={() => cambiarSlide(5)}>Pago Único 1 Mes</button>
-                    <button className='boton-planes-disciplina sub-boton' onClick={() => cambiarSlide(6)}>Pago Único 5 Meses</button>
-                    <button className='boton-planes-disciplina sub-boton' onClick={() => cambiarSlide(7)}>Pago Único 12 Meses</button>
+                    <button className='boton-planes-disciplina sub-boton' onClick={(e) => cambiarSlide(3,e)} title='Combos'>Pago Recurrente</button>
+                    <button className='boton-planes-disciplina sub-boton' onClick={(e) => cambiarSlide(5,e)} title='Combos'>Pago Único 1 Mes</button>
+                    <button className='boton-planes-disciplina sub-boton' onClick={(e) => cambiarSlide(6,e)} title='Combos'>Pago Único 5 Meses</button>
+                    <button className='boton-planes-disciplina sub-boton' onClick={(e) => cambiarSlide(7,e)} title='Combos'>Pago Único 12 Meses</button>
                 </div>
                 <div className='planes-items-container fade' style={{display: "flex"}}>
-                    {titulosBJJ.map((titulo, index) => {
+                    {Datas.BJJ.titulos.map((titulo, index) => {
                         var bestValue = ""
-                        var color = "var(--azulSatori)"
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosBJJ[index]} vrMensual={vrMensualesBJJ[index]} vrTotal={vrTotalesBJJ[index]} descripcion={descripcionesBJJ[index]} boton={botonesBJJ[index]} bestValue={bestValue} color={color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.BJJ.subtitulos[index]} vrMensual={Datas.BJJ.vrMensuales[index]} vrTotal={Datas.BJJ.vrTotales[index]} descripcion={Datas.BJJ.descripciones[index]} boton={Datas.BJJ.botones[index]} bestValue={bestValue} color={Datas.BJJ.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosBoxeo.map((titulo, index) => {
+                    {Datas.BOXEO.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
-                        var color = "var(--colorDobleA)"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosBoxeo[index]} vrMensual={vrMensualesBoxeo[index]} vrTotal={vrTotalesBoxeo[index]} descripcion={descripcionesBoxeo[index]} boton={botonesBoxeo[index]} bestValue={bestValue} color={color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.BOXEO.subtitulos[index]} vrMensual={Datas.BOXEO.vrMensuales[index]} vrTotal={Datas.BOXEO.vrTotales[index]} descripcion={Datas.BOXEO.descripciones[index]} boton={Datas.BOXEO.botones[index]} bestValue={bestValue} color={Datas.BOXEO.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosMMA.map((titulo, index) => {
+                    {Datas.MMA.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
-                        var color = "var(--rojoSatori)"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosMMA[index]} vrMensual={vrMensualesMMA[index]} vrTotal={vrTotalesMMA[index]} descripcion={descripcionesMMA[index]} boton={botonesMMA[index]} bestValue={bestValue} color={color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.MMA.subtitulos[index]} vrMensual={Datas.MMA.vrMensuales[index]} vrTotal={Datas.MMA.vrTotales[index]} descripcion={Datas.MMA.descripciones[index]} boton={Datas.MMA.botones[index]} bestValue={bestValue} color={Datas.MMA.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosCombos.map((titulo, index) => {
+                    {Datas.COMBOS.titulos.map((titulo, index) => {
                         var bestValue = ""
-                        var color = "black"
                         if (index === 3) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosCombos[index]} vrMensual={vrMensualesCombos[index]} vrTotal={vrTotalesCombos[index]} descripcion={descripcionesCombos[index]} boton={botonesCombos[index]} bestValue={bestValue} color={color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOS.subtitulos[index]} vrMensual={Datas.COMBOS.vrMensuales[index]} vrTotal={Datas.COMBOS.vrTotales[index]} descripcion={Datas.COMBOS.descripciones[index]} boton={Datas.COMBOS.botones[index]} bestValue={bestValue} color={Datas.COMBOS.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosOtros.map((titulo, index) => {
+                    {Datas.OTROS.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosOtros[index]} vrMensual={vrMensualesOtros[index]} vrTotal={vrTotalesOtros[index]} descripcion={descripcionesOtros[index]} boton={botonesOtros[index]} bestValue={bestValue}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.OTROS.subtitulos[index]} vrMensual={Datas.OTROS.vrMensuales[index]} vrTotal={Datas.OTROS.vrTotales[index]} descripcion={Datas.OTROS.descripciones[index]} boton={Datas.OTROS.botones[index]} bestValue={bestValue} color={Datas.OTROS.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosCombos.map((titulo, index) => {
+                    {Datas.COMBOSMES.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosCombos[index]} vrMensual={vrMensualesCombos[index]} vrTotal={vrTotalesCombos[index]} descripcion={descripcionesCombos[index]} boton={botonesCombos[index]} bestValue={bestValue}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOSMES.subtitulos[index]} vrMensual={Datas.COMBOSMES.vrMensuales[index]} vrTotal={Datas.COMBOSMES.vrTotales[index]} descripcion={Datas.COMBOSMES.descripciones[index]} boton={Datas.COMBOSMES.botones[index]} bestValue={bestValue} color={Datas.COMBOSMES.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosCombos.map((titulo, index) => {
+                    {Datas.COMBOS5MESES.titulos.map((titulo, index) => {
                         var bestValue = ""
-                        if (index === 0) bestValue = "best-value"
+                        if (index === 1) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosCombos[index]} vrMensual={vrMensualesCombos[index]} vrTotal={vrTotalesCombos[index]} descripcion={descripcionesCombos[index]} boton={botonesCombos[index]} bestValue={bestValue}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOS5MESES.subtitulos[index]} vrMensual={Datas.COMBOS5MESES.vrMensuales[index]} vrTotal={Datas.COMBOS5MESES.vrTotales[index]} descripcion={Datas.COMBOS5MESES.descripciones[index]} boton={Datas.COMBOS5MESES.botones[index]} bestValue={bestValue} color={Datas.COMBOS5MESES.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {titulosCombos.map((titulo, index) => {
+                    {Datas.COMBOSANUALIDAD.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={subtitulosCombos[index]} vrMensual={vrMensualesCombos[index]} vrTotal={vrTotalesCombos[index]} descripcion={descripcionesCombos[index]} boton={botonesCombos[index]} bestValue={bestValue}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOSANUALIDAD.subtitulos[index]} vrMensual={Datas.COMBOSANUALIDAD.vrMensuales[index]} vrTotal={Datas.COMBOSANUALIDAD.vrTotales[index]} descripcion={Datas.COMBOSANUALIDAD.descripciones[index]} boton={Datas.COMBOSANUALIDAD.botones[index]} bestValue={bestValue} color={Datas.COMBOSANUALIDAD.color}/>
                         )
                     })}
                 </div>
             </div>
-
         </>
     )
 }

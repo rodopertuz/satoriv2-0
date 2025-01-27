@@ -4,15 +4,19 @@ export default function PlanItem({titulo, subtitulo, vrMensual, vrTotal, descrip
 
     const clase = 'plan-item-container ' + bestValue
     var sombra = ""
+    var imgUrl = null
+    var styleImagen = {}
     if (bestValue === ""){
         sombra = "0px 0px 10px 0px var(--grisOscuroSatori)"
+        styleImagen = {display: "none"}
     } else {
         sombra = "0px 0px 10px 0px " + color
-    }
+        imgUrl = "../img/bestChoiceRed.png"    }
 
     return(
         <>
             <div id='plan-item-container' className={clase} style={{boxShadow: sombra}}>
+                <img src={imgUrl} alt="" className='best-value-img' style={styleImagen}/>
                 <h2 id='plan-item-titulo' className='plan-item-titulo'>{titulo}</h2>
                 <h3 id='plan-item-subtitulo' className='plan-item-subtitulo'>{subtitulo}</h3>
                 <p className='plan-item-generalinfo'>Equivalente mensual</p>

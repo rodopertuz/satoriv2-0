@@ -42,7 +42,7 @@
     display: none;
     flex-direction: row;
     gap: 20px;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     width: 100%;
     flex-grow: 0;
