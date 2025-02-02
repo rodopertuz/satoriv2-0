@@ -1,4 +1,4 @@
-export const Datas = {
+export const DataPlanes = {
     BJJ : {
         color : "var(--azulSatori)",
         

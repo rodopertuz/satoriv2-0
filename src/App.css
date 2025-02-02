@@ -15,10 +15,11 @@
   --rojoSatori: #ff402c;
   --azulSatori: #3f63ff;
   --colorDobleA: #e50069;
+  --bodyBackgroundColor: #f3f3f3;
 }
 
 body {
-  background-color: #f3f3f3;
+  background-color: var(--bodyBackgroundColor);
 }
 
 .section-titulo {
@@ -62,6 +63,18 @@ body {
     animation-delay: 2s;
     animation-fill-mode: forwards;
   }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+
+  .fadeOut{
+    animation-name: fadeOut;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+  
 }
 
 @keyframes imagenIzqDer {
@@ -72,4 +85,18 @@ body {
 @keyframes divAbajoArriba {
   0%   {opacity:0; top:0px;}
   100% {opacity:1; top:-150px;}
+}
+
+@keyframes fade {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; 
+  }
+  to {
+    opacity: 0;
+  }
 }

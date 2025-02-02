@@ -2,7 +2,7 @@
 import PlanItem from '../components/planItem'
 import '../style/planes.css'
 
-import {Datas} from '../data/dataJson.js' 
+import {DataPlanes} from '../data/dataPlanesJson.js' 
 
 export default function Planes(){
 
@@ -40,7 +40,7 @@ export default function Planes(){
         } else {
             botones[slideIndex].className = "boton-planes-disciplina boton-planes-activo";
             const seccion = evento.target.title.toUpperCase()
-            var color = Datas[seccion].color
+            var color = DataPlanes[seccion].color
             botones[slideIndex].style.borderColor = color;
         }
     }
@@ -48,7 +48,7 @@ export default function Planes(){
 
     return(
         <>
-            <h1 className='section-titulo'>Planes y Promociones</h1>
+            <h1 className='section-titulo'>Planes y Promociones<br/><span style={{fontSize: "medium"}}>*Selecciona un programa para ver las diferentes opciones de afiliación</span></h1>
             <div className='planes-items-global-container' id='planes-items-global-container'>
                 <div className='botones-planes-disciplinas' id='botones-planes-disciplinas'>
                     <button className='boton-planes-disciplina boton-planes-activo' onClick={(e) => cambiarSlide(0,e)} title='BJJ'>BJJ</button>
@@ -64,74 +64,74 @@ export default function Planes(){
                     <button className='boton-planes-disciplina sub-boton' onClick={(e) => cambiarSlide(7,e)} title='Combos'>Pago Único 12 Meses</button>
                 </div>
                 <div className='planes-items-container fade' style={{display: "flex"}}>
-                    {Datas.BJJ.titulos.map((titulo, index) => {
+                    {DataPlanes.BJJ.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.BJJ.subtitulos[index]} vrMensual={Datas.BJJ.vrMensuales[index]} vrTotal={Datas.BJJ.vrTotales[index]} descripcion={Datas.BJJ.descripciones[index]} boton={Datas.BJJ.botones[index]} bestValue={bestValue} color={Datas.BJJ.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.BJJ.subtitulos[index]} vrMensual={DataPlanes.BJJ.vrMensuales[index]} vrTotal={DataPlanes.BJJ.vrTotales[index]} descripcion={DataPlanes.BJJ.descripciones[index]} boton={DataPlanes.BJJ.botones[index]} bestValue={bestValue} color={DataPlanes.BJJ.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.BOXEO.titulos.map((titulo, index) => {
+                    {DataPlanes.BOXEO.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.BOXEO.subtitulos[index]} vrMensual={Datas.BOXEO.vrMensuales[index]} vrTotal={Datas.BOXEO.vrTotales[index]} descripcion={Datas.BOXEO.descripciones[index]} boton={Datas.BOXEO.botones[index]} bestValue={bestValue} color={Datas.BOXEO.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.BOXEO.subtitulos[index]} vrMensual={DataPlanes.BOXEO.vrMensuales[index]} vrTotal={DataPlanes.BOXEO.vrTotales[index]} descripcion={DataPlanes.BOXEO.descripciones[index]} boton={DataPlanes.BOXEO.botones[index]} bestValue={bestValue} color={DataPlanes.BOXEO.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.MMA.titulos.map((titulo, index) => {
+                    {DataPlanes.MMA.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.MMA.subtitulos[index]} vrMensual={Datas.MMA.vrMensuales[index]} vrTotal={Datas.MMA.vrTotales[index]} descripcion={Datas.MMA.descripciones[index]} boton={Datas.MMA.botones[index]} bestValue={bestValue} color={Datas.MMA.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.MMA.subtitulos[index]} vrMensual={DataPlanes.MMA.vrMensuales[index]} vrTotal={DataPlanes.MMA.vrTotales[index]} descripcion={DataPlanes.MMA.descripciones[index]} boton={DataPlanes.MMA.botones[index]} bestValue={bestValue} color={DataPlanes.MMA.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.COMBOS.titulos.map((titulo, index) => {
+                    {DataPlanes.COMBOS.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 3) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOS.subtitulos[index]} vrMensual={Datas.COMBOS.vrMensuales[index]} vrTotal={Datas.COMBOS.vrTotales[index]} descripcion={Datas.COMBOS.descripciones[index]} boton={Datas.COMBOS.botones[index]} bestValue={bestValue} color={Datas.COMBOS.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.COMBOS.subtitulos[index]} vrMensual={DataPlanes.COMBOS.vrMensuales[index]} vrTotal={DataPlanes.COMBOS.vrTotales[index]} descripcion={DataPlanes.COMBOS.descripciones[index]} boton={DataPlanes.COMBOS.botones[index]} bestValue={bestValue} color={DataPlanes.COMBOS.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.OTROS.titulos.map((titulo, index) => {
+                    {DataPlanes.OTROS.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.OTROS.subtitulos[index]} vrMensual={Datas.OTROS.vrMensuales[index]} vrTotal={Datas.OTROS.vrTotales[index]} descripcion={Datas.OTROS.descripciones[index]} boton={Datas.OTROS.botones[index]} bestValue={bestValue} color={Datas.OTROS.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.OTROS.subtitulos[index]} vrMensual={DataPlanes.OTROS.vrMensuales[index]} vrTotal={DataPlanes.OTROS.vrTotales[index]} descripcion={DataPlanes.OTROS.descripciones[index]} boton={DataPlanes.OTROS.botones[index]} bestValue={bestValue} color={DataPlanes.OTROS.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.COMBOSMES.titulos.map((titulo, index) => {
+                    {DataPlanes.COMBOSMES.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOSMES.subtitulos[index]} vrMensual={Datas.COMBOSMES.vrMensuales[index]} vrTotal={Datas.COMBOSMES.vrTotales[index]} descripcion={Datas.COMBOSMES.descripciones[index]} boton={Datas.COMBOSMES.botones[index]} bestValue={bestValue} color={Datas.COMBOSMES.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.COMBOSMES.subtitulos[index]} vrMensual={DataPlanes.COMBOSMES.vrMensuales[index]} vrTotal={DataPlanes.COMBOSMES.vrTotales[index]} descripcion={DataPlanes.COMBOSMES.descripciones[index]} boton={DataPlanes.COMBOSMES.botones[index]} bestValue={bestValue} color={DataPlanes.COMBOSMES.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.COMBOS5MESES.titulos.map((titulo, index) => {
+                    {DataPlanes.COMBOS5MESES.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 1) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOS5MESES.subtitulos[index]} vrMensual={Datas.COMBOS5MESES.vrMensuales[index]} vrTotal={Datas.COMBOS5MESES.vrTotales[index]} descripcion={Datas.COMBOS5MESES.descripciones[index]} boton={Datas.COMBOS5MESES.botones[index]} bestValue={bestValue} color={Datas.COMBOS5MESES.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.COMBOS5MESES.subtitulos[index]} vrMensual={DataPlanes.COMBOS5MESES.vrMensuales[index]} vrTotal={DataPlanes.COMBOS5MESES.vrTotales[index]} descripcion={DataPlanes.COMBOS5MESES.descripciones[index]} boton={DataPlanes.COMBOS5MESES.botones[index]} bestValue={bestValue} color={DataPlanes.COMBOS5MESES.color}/>
                         )
                     })}
                 </div>
                 <div className='planes-items-container fade'>
-                    {Datas.COMBOSANUALIDAD.titulos.map((titulo, index) => {
+                    {DataPlanes.COMBOSANUALIDAD.titulos.map((titulo, index) => {
                         var bestValue = ""
                         if (index === 0) bestValue = "best-value"
                         return (
-                            <PlanItem key={index} titulo={titulo} subtitulo={Datas.COMBOSANUALIDAD.subtitulos[index]} vrMensual={Datas.COMBOSANUALIDAD.vrMensuales[index]} vrTotal={Datas.COMBOSANUALIDAD.vrTotales[index]} descripcion={Datas.COMBOSANUALIDAD.descripciones[index]} boton={Datas.COMBOSANUALIDAD.botones[index]} bestValue={bestValue} color={Datas.COMBOSANUALIDAD.color}/>
+                            <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.COMBOSANUALIDAD.subtitulos[index]} vrMensual={DataPlanes.COMBOSANUALIDAD.vrMensuales[index]} vrTotal={DataPlanes.COMBOSANUALIDAD.vrTotales[index]} descripcion={DataPlanes.COMBOSANUALIDAD.descripciones[index]} boton={DataPlanes.COMBOSANUALIDAD.botones[index]} bestValue={bestValue} color={DataPlanes.COMBOSANUALIDAD.color}/>
                         )
                     })}
                 </div>

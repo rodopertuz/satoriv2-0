@@ -1,0 +1,116 @@
+.boton-planes-disciplina{
+    display: flex;
+    align-items: center;
+}
+
+.boton-planes-disciplina img{
+    opacity: 0.5;
+}
+
+.boton-planes-activo img {
+    opacity: 1;
+}
+
+.section-subcontainer{
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    width: 80%;
+    box-shadow: 10px 10px 10px var(--grisClaroSatori);
+    padding: 20px;
+    flex-direction: column;
+}
+
+.section-horarios-row-filtro{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.section-horarios-row{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.section-horarios-row-item{
+    display: flex;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    padding: 10px;
+    background-color: red;
+    width: 12%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+}
+
+.item-horario{
+    flex-grow: 1;
+    border-radius: 0px;
+    border: 1px solid transparent;
+}
+
+.section-horarios-horario{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    padding: 0px;
+}
+
+/* .section-horarios-horario-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+} */
+
+.section-horarios-horario-fil-item {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border-left: 1px solid var(--grisOscuroSatori);
+    overflow: hidden;
+}
+
+.section-horarios-horario-fil-item:nth-child(n+8):nth-child(-n+14),
+.section-horarios-horario-fil-item:nth-child(n+22):nth-child(-n+28),
+.section-horarios-horario-fil-item:nth-child(n+36):nth-child(-n+42),
+.section-horarios-horario-fil-item:nth-child(n+50):nth-child(-n+56) {
+    /* background-color: var(--bodyBackgroundColor); */
+    background-color: var(--grisClaroSatori);
+}
+
+.section-horarios-horario-fil-item:nth-child(n+8):nth-child(-n+8),
+.section-horarios-horario-fil-item:nth-child(n+22):nth-child(-n+22),
+.section-horarios-horario-fil-item:nth-child(n+36):nth-child(-n+36),
+.section-horarios-horario-fil-item:nth-child(n+50):nth-child(-n+50) {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.section-horarios-horario-fil-item:nth-child(n+14):nth-child(-n+14),
+.section-horarios-horario-fil-item:nth-child(n+28):nth-child(-n+28),
+.section-horarios-horario-fil-item:nth-child(n+42):nth-child(-n+42),
+.section-horarios-horario-fil-item:nth-child(n+56):nth-child(-n+56) {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.section-horarios-horario-fil-item:nth-child(n+1):nth-child(-n+1),
+.section-horarios-horario-fil-item:nth-child(n+8):nth-child(-n+8),
+.section-horarios-horario-fil-item:nth-child(n+15):nth-child(-n+15),
+.section-horarios-horario-fil-item:nth-child(n+22):nth-child(-n+22),
+.section-horarios-horario-fil-item:nth-child(n+29):nth-child(-n+29),
+.section-horarios-horario-fil-item:nth-child(n+36):nth-child(-n+36),
+.section-horarios-horario-fil-item:nth-child(n+43):nth-child(-n+43),
+.section-horarios-horario-fil-item:nth-child(n+50):nth-child(-n+50),
+.section-horarios-horario-fil-item:nth-child(n+57):nth-child(-n+57) {
+    border-left: 1px solid transparent;
+}
+
+.horario-item {
+    border-radius: 15px;
+    padding: 0;
+    padding: 15px 0px;
+}

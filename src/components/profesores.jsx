@@ -4,7 +4,7 @@ import '../App.css'
 
 export default function Profesores(){
     const nombres = ["Rodolfo Pertuz", "Mateo Romero", "Andres \"DobleA\" Ayala", "Juan Carlos Miranda", "Alejandro Sevilla"]
-    const titulos = ["Instructor Principal", "Instructor Kids y Teens", "Instructor de Boxeo", "Instructor MMA", "Instructor MMA"]
+    const titulos = ["Instructor Principal", "Instructor Kids y Teens", "Instructor Boxeo", "Instructor MMA", "Instructor MMA"]
     const descripcion =  ["Cinturón negro 1er grado de Jiu Jitsu Brasilero con 14 años de experiencia en Artes Marciales. Competidor activo afiliado a IBJJF y AJP.", 
         "Cinturón negro de Jiu Jitsu Brasilero. Instructor especializado en niños y adolescentes. Competidor activo afiliado a IBJJF y AJP.", 
         "Cinturón negro de Jiu Jitsu Brasilero. Peleador profesional de Boxeo y Artes Marciales Mixtas (MMA). Actual campeón de las franquicias MATCHMAKER + Combate Global y MATCHMAKER + FFC.", 
