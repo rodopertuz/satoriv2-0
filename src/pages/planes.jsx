@@ -7,9 +7,13 @@ import {DataPlanes} from '../data/dataPlanesJson.js'
 export default function Planes(){
 
     function cambiarSlide(slideIndex, evento){
+
         const planesContainers = document.getElementsByClassName("planes-items-container")
         const botonesDiv = document.getElementById("planes-items-global-container")
         const botones = botonesDiv.getElementsByTagName("button")
+
+        document.getElementById("corregirAlturaPorTopMenu").scrollIntoView({ behavior: 'smooth' })
+        
         for (let i=0; i<planesContainers.length; i++){
             planesContainers[i].style.display = "none";
         }
@@ -48,6 +52,8 @@ export default function Planes(){
 
     return(
         <>
+            <div id='planes' style={{position: "absolute", top: 0+"px"}}></div>
+            <div id='corregirAlturaPorTopMenu' style={{position: "absolute", top: 130+"px"}}></div>
             <h1 className='section-titulo'>Planes y Promociones<br/><span style={{fontSize: "medium"}}>*Selecciona un programa para ver las diferentes opciones de afiliación</span></h1>
             <div className='planes-items-global-container' id='planes-items-global-container'>
                 <div className='botones-planes-disciplinas' id='botones-planes-disciplinas'>
