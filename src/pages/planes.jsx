@@ -1,4 +1,6 @@
 
+import duchasImg from '../img/duchas.png'
+
 import PlanItem from '../components/planItem'
 import '../style/planes.css'
 
@@ -140,6 +142,40 @@ export default function Planes(){
                             <PlanItem key={index} titulo={titulo} subtitulo={DataPlanes.COMBOSANUALIDAD.subtitulos[index]} vrMensual={DataPlanes.COMBOSANUALIDAD.vrMensuales[index]} vrTotal={DataPlanes.COMBOSANUALIDAD.vrTotales[index]} descripcion={DataPlanes.COMBOSANUALIDAD.descripciones[index]} boton={DataPlanes.COMBOSANUALIDAD.botones[index]} bestValue={bestValue} color={DataPlanes.COMBOSANUALIDAD.color}/>
                         )
                     })}
+                </div>
+            </div>
+            <div className='instalaciones-global-container'>
+                <div className='instalaciones-item-actual' style={{left: "0px"}}>
+                    <div className='instalaciones-item-img-actual'>
+                        <img src={duchasImg} alt="" />
+                    </div>
+                    <div className='instalaciones-item-texto-actual'>
+                        <p>Indoor Cycling
+
+                            El ciclismo bajo techo te permite: 
+
+                            Quemar calorías 
+                            Tonificar las piernas y glúteos
+                            Mejorara tu condición cardiovascular 
+                            Divertirte al máximo
+                        </p>
+                    </div>
+                </div>
+                <div className='instalaciones-item' style={{left: "500px"}}>
+                    <div className='instalaciones-item-img'>
+                        <img src={duchasImg} alt="" />
+                    </div>
+                    <div className='instalaciones-item-texto'>
+                        <p>Indoor Cycling
+
+                            El ciclismo bajo techo te permite: 
+
+                            Quemar calorías 
+                            Tonificar las piernas y glúteos
+                            Mejorara tu condición cardiovascular 
+                            Divertirte al máximo
+                        </p>
+                    </div>
                 </div>
             </div>
         </>

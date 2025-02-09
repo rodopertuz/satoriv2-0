@@ -1,0 +1,15 @@
+.subcontainer-titulo {
+    margin: 0;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.container-element a,
+.container-element a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.section-subcontainer {
+    justify-content: center;
+}
